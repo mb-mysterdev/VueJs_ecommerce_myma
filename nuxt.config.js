@@ -1,59 +1,134 @@
 export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: 'mymanuxt',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+    head: {
+        titleTemplate: 'Molla - Multi-purpose eCommerce Vue Template',
+        title: 'Molla - Multi-purpose eCommerce Vue Template',
+        meta: [
+            { charset: 'utf-8' },
+            {
+                name: 'viewport',
+                content: 'width=device-width, initial-scale=1'
+            },
+            {
+                hid: 'description',
+                name: 'description',
+                content:
+                    'Molla - Multi-purpose eCommerce Vue Template'
+            },
+            {
+                name: 'author',
+                content: 'd-themes'
+            },
+            {
+                name: 'keywords',
+                content: 'Molla Vue eCommerce Template'
+            },
+            {
+                name: 'app-mobile-web-app-title',
+                content: 'Molla'
+            },
+            {
+                name: 'application-name',
+                content: 'Molla Vue eCommerce Template',
+            },
+            {
+                name: 'msapplication-TileColor',
+                content: '#cc9966'
+            },
+            {
+                name: 'msapplication-config',
+                content: '/images/icons/browserconfig.xml'
+            }
+        ],
+        link: [
+            {
+                rel: 'dns-prefetch',
+                href: "//fonts.googleapis.com"
+            },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href:
+                    './images/icons/favicon-32x32.png'
+            },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href:
+                    './images/icons/favicon-16x16.png'
+            },
+            {
+                rel: 'shortcut icon',
+                href:
+                    './images/icons/favicon.ico'
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '180x180',
+                href:
+                    './images/icons/apple-touch-icon.png'
+            },
+            {
+                rel: 'manifest',
+                href:
+                    './images/icons/site.webmanifest'
+            },
+            {
+                rel: 'mask-icon',
+                color: '#666666',
+                href:
+                    './images/icons/safari-pinned-tab.svg'
+            },
+            {
+                rel: 'stylesheet',
+                href:
+                    'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CPoppins:300,400,500,600,700',
+                defer: true
+            }
+        ],
+    },
+    css: [
+        '~/static/vendor/line-awesome/css/line-awesome.min.css',
+        'swiper/dist/css/swiper.css',
+        '~/static/css/fonts-molla.min.css',
+        '~/static/css/bootstrap.min.css',
+        '~/assets/scss/style.scss',
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
-  },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+    plugins: [
+        { src: '~/plugins/swiper.js', ssr: false },
+        { src: '~/plugins/localStorage.js', ssr: false },
+        { src: '~/plugins/modal.js', ssr: false },
+        { src: '~/plugins/axios.js', ssr: false },
+        { src: '~/plugins/lazyLoad.js', ssr: false },
+        { src: '~/plugins/toastify.js', ssr: false },
+        { src: '~/plugins/nouislider.js', ssr: false },
+    ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+    modules: [ '@nuxtjs/axios' ],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+    router: {
+        base: '/vue/molla/demo-11/',
+        linkActiveClass: 'link-active',
+        linkExactActiveClass: 'active'
+    },
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module'
-  ],
+    pageTransition: 'page',
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
-  ],
+    build: {
+        publicPath: 'https://d-themes.com/vue/molla/demo-11'
+    },
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/'
-  },
+    generate: {
+        subFolders: false,
+        fallback: '404.html'
+    },
 
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      lang: 'en'
+    ssr: false,
+
+    server: {
+        port: 4000,
+        host: 'localhost'
     }
-  },
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
-}
+};
